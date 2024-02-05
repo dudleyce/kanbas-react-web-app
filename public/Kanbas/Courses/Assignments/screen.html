@@ -1,28 +1,35 @@
 <html>
     <head>
-
+        <link rel="stylesheet" href="/Kanbas/styles.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
     </head>
     <body>
         <table width = "100%">
             <tbody>
                 <tr>
-                    <td valign = "top"><ul>
-                        <li><a href="/Kanbas/Account/Navigation/index.html">
-                           Account</a></li>
-                        <li>
-                         <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
+                    <td valign = "top"><ul class="wd-kanbas-navigation">
+                        <li><a href="http://northeastern.edu">N</a></li>
+                        <li><a href="/Kanbas/Account/Profile/screen.html">
+                          <i class="fa-solid fa-user"></i> Account</a></li>
+                        <li class="wd-active">
+                          <a href="/Kanbas/Dashboard/screen.html">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard</a>
                         </li>
-                        <li>
-                         <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-                        </li>
-                        <li>
-                         <a href="/Kanbas/Calendar/index.html">Calendar</a></li>
-                        <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
-                        <li><a href = "/Kanbas/History/index.html">History</a></li>
-                        <li><a href = "/Kanbas/Studio/index.html">Studio</a></li>
-                        <li><a href = "/Kanbas/Commons/index.html">Commons</a></li>
-                        <li><a href = "/Kanbas/Help/index.html">Help</a></li>
-                       </ul></td>
+                        <li><a href="/Kanbas/Courses/Home/screen.html">
+                          <i class="fa-solid fa-book"></i>Courses</a> </li>
+                        <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+                        <li><a href="#">
+                          <i class="fa-solid fa-inbox"></i><br />Inbox</a></li>
+                        <li><a href="#">
+                          <i class="fa-solid fa-clock"></i>History</a></li>
+                        <li><a href="#">
+                          <i class="fa-brands fa-youtube"></i>Studio</a></li>
+                        <li><a href="#">
+                          <i class="fa-solid fa-arrow-up-right-from-square"></i>Commons</a></li>
+                        <li><a href="#">
+                          <i class="fa-solid fa-question"></i><br />Help</a></li>
+                      </ul></td>
                     <td valign = "top"><ul>
                         <li>
                           <a href="/Kanbas/Courses/Home/screen.html">
@@ -71,7 +78,7 @@
                         <li><a href = "/Kanbas/Courses/Syllabus/screen.html">
                             Syllabus
                         </a></li>
-                        <li><a href = "/Kanbas/Courses/Settings/index.html">
+                        <li><a href = "/Kanbas/Settings/index.html">
                             Settings
                         </a></li>
                       </ul></td>
@@ -92,7 +99,11 @@
                         </tbody>
                     </table>
                     <ul>
-                        <li>Assignments</li>
+                        <li>Assignments <select>
+                            <option>Edit</option>
+                            <option>Assignment Group Weights</option>
+                            <option>Gradescope 1.3</option>
+                        </select></li>
                         <ul>
                             <li>
                                 <a href = "/Kanbas/Courses/Assignments/Editor/screen.html">A1</a><br />
@@ -115,18 +126,30 @@
                                 Due date: 2020-12-01 23:59:59 | 100 pts
                             </li>
                         </ul>
-                        <li>Quizzes</li>
+                        <li>Quizzes <select>
+                            <option>Edit</option>
+                            <option>Assignment Group Weights</option>
+                            <option>Gradescope 1.3</option>
+                        </select></li>
                         <ul>
                             <li><a href = "/Kanbas/Courses/Quizzes.screen.html">Q1</a></li>
                             <li><a href = "/Kanbas/Courses/Quizzes.screen.html">Q2</a></li>
                             <li><a href = "/Kanbas/Courses/Quizzes.screen.html">Q3</a></li>
                         </ul>
-                        <li>Exams</li>
+                        <li>Exams <select>
+                            <option>Edit</option>
+                            <option>Assignment Group Weights</option>
+                            <option>Gradescope 1.3</option>
+                        </select></li>
                         <ul>
                             <li>X1</li>
                             <li>X2</li>
                         </ul>
-                        <li>Projects</li>
+                        <li>Projects <select>
+                            <option>Edit</option>
+                            <option>Assignment Group Weights</option>
+                            <option>Gradescope 1.3</option>
+                        </select></li>
                     </ul></td>
                 </tr>
             </tbody>
