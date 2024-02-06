@@ -3,7 +3,13 @@
         <link rel="stylesheet" href="/Kanbas/styles.css" />
         <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
         <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+        <style>
+            .breadcrumb-item + .breadcrumb-item::before {
+              content: " > "; 
+            }
+          </style>
     </head>
     <body>
         <table>
@@ -85,16 +91,24 @@
                         Settings
                     </a></li>
                   </ul></td>
-                <td valign = "top"> <select id="select-grade">
+                <td valign = "top">
+                    <div class="m-3 p-3">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#" class="text-danger">CS5610.126</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Grades</li>
+                        </ul>
+                      </nav>
+                    <select id="select-grade">
                     <option selected value="gradebook">Gradebook</option>
                     <option value="one">One Grade</option>
                     </select>
-                <button type="button">Import</button> 
-                <select id="select-export">
+                <button type="button"><i class="fa-solid fa-file-import"></i>Import</button> 
+                <select id="select-export" ><i class="fas fa-file-export"></i>
                     <option selected value="Export">Export</option>
                     <option value="Import">Import</option>
                     </select>
-                <button type="button">Configure</button> 
+                <button type="button"id="action-button"><i class="fas fa-file-export"></i>Configure</button> 
         
                 <h2>Student Names</h2>
         
@@ -267,7 +281,8 @@
                         <td>99</td>
                     </tr>
                     </tbody>
-                 </table></td>
+                 </table>
+                </div></td>
               </tr>
             </tbody>
           </table>
