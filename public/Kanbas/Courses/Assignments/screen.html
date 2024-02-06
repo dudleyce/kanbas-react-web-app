@@ -3,7 +3,14 @@
         <link rel="stylesheet" href="/Kanbas/styles.css" />
         <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
         <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
+        <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+        <style>
+            .breadcrumb-item + .breadcrumb-item::before {
+              content: " > "; 
+            }
+          </style>
     </head>
     <body>
         <table width = "100%">
@@ -35,7 +42,7 @@
                         <li>
                           <a href="/Kanbas/Courses/Home/screen.html">
                             Home</a></li>
-                        <li class="wd-active"><a href="/Kanbas/Courses/Modules/screen.html">
+                        <li><a href="/Kanbas/Courses/Modules/screen.html">
                             Modules</a></li>
                         <li><a href="/Kanbas/Courses/Piazza/index.html">
                             Piazza</a></li>
@@ -83,75 +90,126 @@
                             Settings
                         </a></li>
                       </ul></td>
+                      
                     <td valign = "top"><table width = "100%">
                         <tbody>
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="#" class="text-danger">CS5610</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Assignments</li>
+                                </ul>
+                              </nav>
+                              <div class="button-container">
+                                <button type="button">Group</button>
+                                <button type="button">Assignment</button>
+                                <button type="button"><i class="fas fa-ellipsis-v"></i></button> <!-- 3-dot ellipsis -->
+                              </div>
                             <tr>
-                                <td><input placeholder = "Search for Assignments"></td>
-                                <td><button>+Group</button>
-                                    <button>+ Assignment</button>
-                                    <select>
-                                        <option>Edit Assignment Dates</option>
-                                        <option>Assignment Group Weights</option>
-                                        <option>Gradescope 1.3</option>
-                                    </select>
-                                </td>
+                                <input type="text" class="form-control w-25" placeholder="Search for Assignments">
                                 
                             </tr>
                         </tbody>
                     </table>
                     <ul>
-                        <li>Assignments <select>
-                            <option>Edit</option>
-                            <option>Assignment Group Weights</option>
-                            <option>Gradescope 1.3</option>
-                        </select></li>
-                        <ul>
-                            <li>
-                                <a href = "/Kanbas/Courses/Assignments/Editor/screen.html">A1</a><br />
-                                <a href = "./modules.html">Multiple modules</a> |
-                                Due date: 2020-09-01 23:59:59 | 100 pts
+                        
+                        <div class="m-3 p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Assignments 
+                                <span class="border rounded px-2 py-1">40% of Total</span>
+                                <select>
+                                    <option>Edit</option>
+                                    <option>Assignment Group Weights</option>
+                                    <option>Gradescope 1.3</option>
+                                </select>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="left-icons">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <i class="fas fa-clipboard"></i>
+                                        <a href="/Kanbas/Courses/Assignments/Editor/screen.html">A1</a> 
+                                        <a href="./modules.html">Multiple modules</a> | Due date: 2020-09-01 23:59:59 | 100 pts
+                                        <span class="right-icons">
+                                            <i class="fas fa-check"></i>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                          </span>
+                                    </span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="left-icons">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <i class="fas fa-clipboard"></i>
+                                        <a href="/Kanbas/Courses/Assignments/Editor/screen.html">A2</a>
+                                        
+                                        <a href="./modules.html">Multiple modules</a> | Due date: 2020-10-01 23:59:59 | 100 pts
+                                    </span>
+                                    <span class="right-icons">
+                                        <i class="fas fa-check"></i>
+                                        <i class="fas fa-ellipsis-v"></i>
+                                      </span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="left-icons">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <i class="fas fa-clipboard"></i>
+                                        <a href="/Kanbas/Courses/Assignments/Editor/screen.html">A3</a>
+                                        <a href="./modules.html">Multiple modules</a> | Due date: 2020-11-01 23:59:59 | 100 pts
+                                    </span>
+                                    <span class="right-icons">
+                                        <i class="fas fa-check"></i>
+                                        <i class="fas fa-ellipsis-v"></i>
+                                      </span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="left-icons">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <i class="fas fa-clipboard"></i>
+                                        <a href="./edit.html">A4</a>
+                                        <a href="./modules.html">Multiple modules</a> | Due date: 2020-12-01 23:59:59 | 100 pts
+                                    </span>
+                                    <span class="right-icons">
+                                        <i class="fas fa-check"></i>
+                                        <i class="fas fa-ellipsis-v"></i>
+                                      </span>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href = "/Kanbas/Courses/Assignments/Editor/screen.html">A2</a><br />
-                                <a href = "./modules.html">Multiple modules</a> |
-                                Due date: 2020-10-01 23:59:59 | 100 pts
+                            <li class="list-group-item">
+                                Quizzes 
+                                <select>
+                                    <option>Edit</option>
+                                    <option>Assignment Group Weights</option>
+                                    <option>Gradescope 1.3</option>
+                                </select>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><a href="/Kanbas/Courses/Quizzes.screen.html">Q1</a></li>
+                                    <li class="list-group-item"><a href="/Kanbas/Courses/Quizzes.screen.html">Q2</a></li>
+                                    <li class="list-group-item"><a href="/Kanbas/Courses/Quizzes.screen.html">Q3</a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href = "/Kanbas/Courses/Assignments/Editor/screen.html">A3</a><br />
-                                <a href = "./modules.html">Multiple modules</a> |
-                                Due date: 2020-11-01 23:59:59 | 100 pts
+                            <li class="list-group-item">
+                                Exams 
+                                <select>
+                                    <option>Edit</option>
+                                    <option>Assignment Group Weights</option>
+                                    <option>Gradescope 1.3</option>
+                                </select>
+                                <ul class="list-group">
+                                    <li class="list-group-item">X1</li>
+                                    <li class="list-group-item">X2</li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href = "./edit.html">A4</a><br />
-                                <a href = "./modules.html">Multiple modules</a> |
-                                Due date: 2020-12-01 23:59:59 | 100 pts
+                            <li class="list-group-item">
+                                Projects 
+                                <select>
+                                    <option>Edit</option>
+                                    <option>Assignment Group Weights</option>
+                                    <option>Gradescope 1.3</option>
+                                </select>
                             </li>
                         </ul>
-                        <li>Quizzes <select>
-                            <option>Edit</option>
-                            <option>Assignment Group Weights</option>
-                            <option>Gradescope 1.3</option>
-                        </select></li>
-                        <ul>
-                            <li><a href = "/Kanbas/Courses/Quizzes.screen.html">Q1</a></li>
-                            <li><a href = "/Kanbas/Courses/Quizzes.screen.html">Q2</a></li>
-                            <li><a href = "/Kanbas/Courses/Quizzes.screen.html">Q3</a></li>
-                        </ul>
-                        <li>Exams <select>
-                            <option>Edit</option>
-                            <option>Assignment Group Weights</option>
-                            <option>Gradescope 1.3</option>
-                        </select></li>
-                        <ul>
-                            <li>X1</li>
-                            <li>X2</li>
-                        </ul>
-                        <li>Projects <select>
-                            <option>Edit</option>
-                            <option>Assignment Group Weights</option>
-                            <option>Gradescope 1.3</option>
-                        </select></li>
-                    </ul></td>
+                    </div>
+                        </td>
                 </tr>
             </tbody>
         </table>
