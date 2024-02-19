@@ -4,6 +4,7 @@ import IfElse from "./conditionals/IfElse";
 import TernaryOperator from "./conditionals/TernaryOperator";
 import ArrowFunctions from "./functions/ArrowFunctions";
 import ES5Functions from "./functions/ES5functions";
+import Destructing from "./functions/FunctionDestructing";
 import FunctionParenthesisAndParemeters from "./functions/FunctionParenthesisAndParameters";
 import ImpliedReturn from "./functions/ImpliedReturn";
 import BooleanVariables from "./variables/BooleanVariables";
@@ -15,6 +16,7 @@ function JavaScript() {
     return (
         <div>
             <h3>JavaScript</h3>
+            <Destructing />
             <MapFunction />
             <WorkingWithArrays />
             <FunctionParenthesisAndParemeters />
