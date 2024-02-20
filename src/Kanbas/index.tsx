@@ -6,7 +6,7 @@ import Courses from "./Courses";
 
 function Kanbas() {
   return (
-    <div className="d-flex">
+    <div style={{ display: 'flex', minHeight: '100vh' }}>
       <div>
         <KanbasNavigation />
       </div>
