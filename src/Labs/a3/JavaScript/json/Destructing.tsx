@@ -1,4 +1,4 @@
-function FunctionDestructing() {
+function Destructing() {
     const person = { name: "John", age: 25 };
     const { name, age } = person;
     // const name = person.name
@@ -21,4 +21,4 @@ function FunctionDestructing() {
       </div>
     );
    }
-   export default FunctionDestructing;
+   export default Destructing;

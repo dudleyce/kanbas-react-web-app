@@ -11,7 +11,7 @@ function WorkingWithArrays () {
     ];
     return(
         <>
-        <h4>Working with Arrays</h4>
+        <h3>Working with Arrays</h3>
         functionScoped = {functionScoped}
         <br />
         numberArray1 = {numberArray1}
