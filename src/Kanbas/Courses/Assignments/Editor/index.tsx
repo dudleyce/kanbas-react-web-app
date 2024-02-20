@@ -5,11 +5,11 @@ function AssignmentEditor() {
   const { assignmentId } = useParams();
   const assignment = assignments.find(
     (assignment) => assignment._id === assignmentId);
-  const { courseId } = useParams();
+  const { cid } = useParams();
   const navigate = useNavigate();
   const handleSave = () => {
     console.log("Actually saving assignment TBD in later assignments");
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
   return (
     <div>
@@ -19,7 +19,7 @@ function AssignmentEditor() {
       <button onClick={handleSave} className="btn btn-success ms-2 float-end">
         Save
       </button>
-      <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
+      <Link to={`/Kanbas/Courses/${cid}/Assignments`}
             className="btn btn-danger float-end">
         Cancel
       </Link>

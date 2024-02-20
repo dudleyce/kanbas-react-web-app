@@ -1,9 +1,9 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
 function Grades() {
-  const { courseId } = useParams();
-  const as = assignments.filter((assignment) => assignment.course === courseId);
-  const es = enrollments.filter((enrollment) => enrollment.course === courseId);
+  const { cid } = useParams();
+  const as = assignments.filter((assignment) => assignment.course === cid);
+  const es = enrollments.filter((enrollment) => enrollment.course === cid);
   return (
     <div>
       <h1>Grades</h1>

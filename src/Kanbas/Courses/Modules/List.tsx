@@ -4,12 +4,18 @@ import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 function ModuleList() {
-  const { courseId } = useParams();
-  const modulesList = modules.filter((module) => module.course === courseId);
+  const { cid } = useParams();
+  const modulesList = modules.filter((module) => module.course === cid);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
     <>
-      {/* <!-- Add buttons here --> */}
+      <button type="button">Collapse All</button>
+                    <button type="button">View Progress</button>
+                    <select id="select-publish">
+                        <option selected value="all">Publish All</option>
+                        <option value="one">Publish One</option>
+                        </select>
+                    <button type="button">Module</button>
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li

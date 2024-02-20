@@ -67,7 +67,7 @@
       "lastName": "Baggins",
       "email": "frodo@shire.com",
       "dob": "1368-09-22",
-      "role": "FACULTY"
+      "role": "STUDENT"
     },
     {
       "_id": "128",
@@ -77,7 +77,7 @@
       "lastName": "Elessar",
       "email": "aragorn@gondor.com",
       "dob": "2931-03-01",
-      "role": "FACULTY"
+      "role": "STUDENT"
     },
     {
       "_id": "129",
@@ -87,6 +87,48 @@
       "lastName": "Greenleaf",
       "email": "legolas@mirkwood.com",
       "dob": "2879-07-15",
-      "role": "FACULTY"
+      "role": "STUDENT"
+    },
+    {
+      "_id": "130",
+      "username": "cdudley",
+      "password": "password2",
+      "firstName": "Claire",
+      "lastName": "Dudley",
+      "email": "cdudley@gmail.com",
+      "dob": "2879-07-15",
+      "role": "STUDENT"
+    },
+    {
+      "_id": "131",
+      "username": "kbarner",
+      "password": "password3",
+      "firstName": "Kelly",
+      "lastName": "Barner",
+      "email": "kbarner@gmail.com",
+      "dob": "2879-07-15",
+      "role": "STUDENT"
+    },
+    {
+      "_id": "131",
+      "username": "aponson",
+      "password": "password2",
+      "firstName": "Adam",
+      "lastName": "Ponson",
+      "email": "aponson@gmail.com",
+      "dob": "2879-07-15",
+      "role": "STUDENT"
+    },
+    {
+      "_id": "132",
+      "username": "mcaesar",
+      "password": "password2",
+      "firstName": "Maria",
+      "lastName": "Caesar",
+      "email": "mcaesar@gmail.com",
+      "dob": "2879-07-15",
+      "role": "STUDENT"
     }
+
+
   ]

@@ -3,9 +3,13 @@ import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { assignments } from "../../Database";
 function Assignments() {
-  const { courseId } = useParams();
+
+  const { cid } = useParams();
   const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId);
+    (assignment) => assignment.course === cid);
+  // const [selectedModule, setSelectedModule] = useState(assignmentList[0]);
+
+
   return (
     <>
      {/*-- Add buttons and other fields here -->*/}
@@ -23,7 +27,7 @@ function Assignments() {
               <li className="list-group-item">
                 <FaEllipsisV className="me-2" />
                 <Link
-                   to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>{assignment.title}</Link>
+                   to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>{assignment.title}</Link>
                 <span className="float-end">
                   <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" /></span>
               </li>))}
