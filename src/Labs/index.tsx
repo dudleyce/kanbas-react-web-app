@@ -4,6 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Nav from "../Nav";
 import store from "./store";
 import { Provider } from "react-redux";
+import React, { Component }  from 'react';
 
 function Labs() {
 return (
