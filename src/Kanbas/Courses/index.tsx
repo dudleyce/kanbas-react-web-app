@@ -1,16 +1,17 @@
-import { courses } from "../../Kanbas/Database";
+import { courses } from "../Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
-// import Modules from "./Modules";
+import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import ModuleList from "./Modules/List";
+import { useState, useEffect } from "react";
 
 
-function Courses() {
+function Courses({ courses }: { courses: any[]; }) {
   
   const { courseId } = useParams();
   const { cid } = useParams();
@@ -22,7 +23,8 @@ function Courses() {
       <CourseNavigation />
       <div>
         <div
-        className="overflow-y-scroll position-fixed bottom-0 end-0">
+        className="overflow-y-scroll position-fixed bottom-0 end-0"
+        style={{ left: "320px", top: "50px" }}>
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home/>} />

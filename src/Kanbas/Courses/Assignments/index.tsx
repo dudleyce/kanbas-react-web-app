@@ -1,39 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
-function Assignments() {
+import { useSelector, useDispatch } from "react-redux"; // Import useSelector
+// Removed direct import from "../../Database"; as you'll use Redux state now
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  selectAssignment,
+} from "./reducer";
+import { KanbasState } from "../../store"; 
 
-  const { cid } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === cid);
-  // const [selectedModule, setSelectedModule] = useState(assignmentList[0]);
+function Assignments() {
+  const { cid } = useParams<{ cid: string }>();
+  const dispatch = useDispatch(); // Use if you need to dispatch actions
+
+  // Assuming your assignments are stored similarly to modules
+  const assignmentList = useSelector((state: KanbasState) => 
+    state.assignmentsReducer.assignments.filter(assignment => assignment.course === cid));
+
+  
+
+  // Component logic and JSX...
 
 
   return (
     <>
-     {/*-- Add buttons and other fields here -->*/}
+      {/* Existing JSX */}
       <ul className="list-group wd-modules">
         <li className="list-group-item">
+          {/* Existing header and icons */}
           <div>
             <FaEllipsisV className="me-2" /> ASSIGNMENTS
             <span className="float-end">
               <FaCheckCircle className="text-success" />
-              <FaPlusCircle className="ms-2" /><FaEllipsisV className="ms-2" />
+              <Link to={`/Kanbas/Courses/${cid}/Assignments/Editor`}>
+                <FaPlusCircle className="ms-2" /><FaEllipsisV className="ms-2" />
+              </Link>
             </span>
           </div>
+          
           <ul className="list-group">
             {assignmentList.map((assignment) => (
-              <li className="list-group-item">
+              <li className="list-group-item" key={assignment._id}>
                 <FaEllipsisV className="me-2" />
-                <Link
-                   to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>{assignment.title}</Link>
+                <Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
+                  {assignment.title}
+                </Link>
                 <span className="float-end">
-                  <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" /></span>
-              </li>))}
+                  <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" />
+                </span>
+              </li>
+            ))}
           </ul>
         </li>
       </ul>
     </>
-);}
+  );
+}
+
 export default Assignments;
