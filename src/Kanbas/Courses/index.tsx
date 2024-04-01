@@ -1,4 +1,4 @@
-import { courses } from "../Database";
+//import { courses } from "../Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
@@ -9,13 +9,27 @@ import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import ModuleList from "./Modules/List";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 
-function Courses({ courses }: { courses: any[]; }) {
+function Courses() {
+const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000';
+const COURSES_API = `${API_BASE}/api/courses`;
+  const { courseId } = useParams<{ courseId: string }>();
   
-  const { courseId } = useParams();
-  const { cid } = useParams();
-  const course = courses.find((course) => course._id === cid);
+
+  const [course, setCourse] = useState<any>({ _id: "" });
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(
+      `${COURSES_API}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
   return (
     <>
     <h1><HiMiniBars3 /> Course {course?.name}</h1>
