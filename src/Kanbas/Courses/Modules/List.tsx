@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addModule, deleteModule, updateModule, setModule } from "./reducer";
+import { addModule, deleteModule, updateModule, setModule, setModules } from "./reducer";
+// import { findModulesForCourse, createModule } from "./client";
 import { KanbasState } from "../../store";
+import * as client from "./client";
 
-// Define ModuleType inline
 interface ModuleType {
   _id: string;
   name: string;
@@ -12,7 +13,7 @@ interface ModuleType {
   course: string;
 }
 
-// ModuleItem component for rendering individual module items
+
 const ModuleItem = ({ module }: { module: ModuleType }) => {
   const dispatch = useDispatch();
 
@@ -20,34 +21,51 @@ const ModuleItem = ({ module }: { module: ModuleType }) => {
     dispatch(setModule(module));
   };
 
-  const handleDelete = () => {
-    dispatch(deleteModule(module._id));
+  const handleDeleteModule = (moduleId: string) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
   };
+
 
   return (
     <li className="list-group-item">
       <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+      <button
+              onClick={() => handleDeleteModule(module._id)} >
+              Delete </button>
       <h3>{module.name}</h3>
       <p>{module.description}</p>
     </li>
   );
 };
 
-// ModuleList component for rendering the list of modules
 const ModuleList = () => {
   const { courseId } = useParams();
+  useEffect(() => {
+    client.findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+
+  
   const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);
   const module: ModuleType = useSelector((state: KanbasState) => state.modulesReducer.module);
   const dispatch = useDispatch();
 
   const handleAddModule = () => {
-    dispatch(addModule({ ...module, course: courseId }));
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
   };
 
-  const handleUpdateModule = () => {
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
     dispatch(updateModule(module));
   };
+
 
   return (
     <ul className="list-group">

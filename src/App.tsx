@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
-//import './App.css';
+import './App.css';
 import Labs from "./Labs";
 import Kanbas from "./Kanbas";
 import HelloWorld from "./Labs/a3/hello";
-import {HashRouter} from "react-router-dom";
+import {HashRouter, Link} from "react-router-dom";
 import {Routes, Route, Navigate} from "react-router";
 
 
@@ -14,11 +14,11 @@ function App() {
     <HashRouter>
   <div>
   <Routes>
-        <Route path="/"         element={<Navigate to="/Labs"/>}/>
-          <Route path="/Labs/*"   element={<Labs/>}/>
-          <Route path="/Kanbas/*" element={<Kanbas/>}/>
-          <Route path="/hello"    element={<HelloWorld/>}/>
-    </Routes>
+          <Route path="/" element={<Navigate to="/Labs/a3" />} /> |
+          <Route path="/hello" element={<HelloWorld />} /> |
+          <Route path="/Labs/*" element={<Labs />} /> |
+          <Route path="/Kanbas/*" element={<Kanbas />} />
+        </Routes>
   </div>
   </HashRouter>
   );
