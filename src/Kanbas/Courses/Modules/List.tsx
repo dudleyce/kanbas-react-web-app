@@ -41,7 +41,7 @@ const ModuleItem = ({ module }: { module: ModuleType }) => {
 };
 
 const ModuleList = () => {
-  const { courseId } = useParams();
+  const { courseId } = useParams<{ courseId: string }>();
   useEffect(() => {
     client.findModulesForCourse(courseId)
       .then((modules) =>
@@ -83,8 +83,8 @@ const ModuleList = () => {
       </li>
       {moduleList
         .filter((module) => module.course === courseId)
-        .map((module, index) => (
-          <ModuleItem key={index} module={module} />
+        .map((module, moduleId) => (
+          <ModuleItem key={moduleId} module={module} />
         ))}
     </ul>
   );
