@@ -15,7 +15,7 @@ interface AssignmentDetails {
 }
 
 function AssignmentEditor() {
-  const { cid, assignmentId } = useParams<{ cid: string; assignmentId?: string }>();
+  const { cid, assignmentId } = useParams<{ cid: string; assignmentId: string }>();
   const navigate = useNavigate();
   const [assignmentDetails, setAssignmentDetails] = useState<AssignmentDetails>({
     title: "",

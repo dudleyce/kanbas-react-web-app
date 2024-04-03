@@ -16,19 +16,22 @@ function Courses() {
 const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000';
 const COURSES_API = `${API_BASE}/api/courses`;
   const { courseId } = useParams<{ courseId: string }>();
-  
 
   const [course, setCourse] = useState<any>({ _id: "" });
-  const findCourseById = async (courseId?: string) => {
-    const response = await axios.get(
-      `${COURSES_API}/${courseId}`
-    );
+  const findCourseById = async (courseId: string) => {
+    const response = await axios.get(`${COURSES_API}/${courseId}`);
     setCourse(response.data);
   };
 
-  useEffect(() => {
+console.log(`Requesting course with ID: ${courseId}`);
+console.log(`Constructed URL: ${COURSES_API}/${courseId}`);
+
+
+ useEffect(() => {
+  if (courseId) {
     findCourseById(courseId);
-  }, [courseId]);
+  }
+}, [courseId]);
 
   return (
     <>
