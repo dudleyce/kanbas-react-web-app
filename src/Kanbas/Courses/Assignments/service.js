@@ -1,16 +1,24 @@
 // assignmentService.js
 import axios from "axios";
 
-const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000';
-const ASSIGNMENTS_API = `${API_BASE}/api/assignments`;
+const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000/';
+const ASSIGNMENTS_API = `${API_BASE}api/assignments`;
+const COURSES_API = `${API_BASE}api/assignments`;
 
 export const getAssignmentById = async (assignmentId) => {
   const response = await axios.get(`${ASSIGNMENTS_API}/${assignmentId}`);
   return response.data;
 };
 
-export const createAssignment = async (assignment) => {
-  const response = await axios.post(ASSIGNMENTS_API, assignment);
+export const findAssignmentsForCourse = async (courseId) => {
+  const response = await axios.get(`${COURSES_API}/${courseId}/assignments`);
+  return response.data;
+}
+
+
+export const createAssignment = async (courseId, assignment) => {
+  const response = await axios.post(`${COURSES_API}/${courseId}/assignments`,
+  assignment);
   return response.data;
 };
 
