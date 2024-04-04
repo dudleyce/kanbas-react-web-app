@@ -13,12 +13,12 @@ import {
 import { KanbasState } from "../../store"; 
 
 function Assignments() {
-  const { cid } = useParams<{ cid: string }>();
+  const { courseId } = useParams<{ courseId: string }>();
   const dispatch = useDispatch(); // Use if you need to dispatch actions
 
  
   const assignmentList = useSelector((state: KanbasState) => 
-    state.assignmentsReducer.assignments.filter(assignment => assignment.course === cid));
+    state.assignmentsReducer.assignments.filter(assignment => assignment.course === courseId));
 
   
 
@@ -33,7 +33,7 @@ function Assignments() {
             <FaEllipsisV className="me-2" /> ASSIGNMENTS
             <span className="float-end">
               <FaCheckCircle className="text-success" />
-              <Link to={`/Kanbas/Courses/${cid}/Assignments/Editor`}>
+              <Link to={`/Kanbas/Courses/${courseId}/Assignments/Editor`}>
                 <FaPlusCircle className="ms-2" /><FaEllipsisV className="ms-2" />
               </Link>
             </span>
@@ -43,7 +43,7 @@ function Assignments() {
             {assignmentList.map((assignment) => (
               <li className="list-group-item" key={assignment._id}>
                 <FaEllipsisV className="me-2" />
-                <Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
+                <Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>
                   {assignment.title}
                 </Link>
                 <span className="float-end">
