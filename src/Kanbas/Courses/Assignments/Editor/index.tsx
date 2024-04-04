@@ -15,11 +15,11 @@ interface AssignmentDetails {
 }
 
 function AssignmentEditor() {
-  const { cid, assignmentId } = useParams<{ cid: string; assignmentId: string }>();
+  const { courseId, assignmentId } = useParams<{ courseId: string; assignmentId: string }>();
   const navigate = useNavigate();
   const [assignmentDetails, setAssignmentDetails] = useState<AssignmentDetails>({
     title: "",
-    course: cid as string,
+    course: courseId as string,
     description: "",
     points: 0,
     dueDate: "",
@@ -41,7 +41,7 @@ function AssignmentEditor() {
         ? await assignmentService.updateAssignment(assignmentId, assignmentDetails)
         : await assignmentService.createAssignment(assignmentDetails);
       console.log("Operation successful", data);
-      navigate(`/Kanbas/Courses/${cid}/Assignments`);
+      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     } catch (error) {
       console.error("Failed to save the assignment", error);
     }
