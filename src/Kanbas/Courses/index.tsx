@@ -13,7 +13,7 @@ import axios from "axios";
 
 
 function Courses() {
-const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000';
+const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000/';
 const COURSES_API = `${API_BASE}/api/courses`;
   const { courseId } = useParams<{ courseId: string }>();
 

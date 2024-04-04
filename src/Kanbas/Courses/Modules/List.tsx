@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addModule, deleteModule, updateModule, setModule, setModules } from "./reducer";
 // import { findModulesForCourse, createModule } from "./client";
 import { KanbasState } from "../../store";
-import * as client from "./client";
+import * as client from "./client.js";
 
 interface ModuleType {
   _id: string;
