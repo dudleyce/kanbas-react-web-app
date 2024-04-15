@@ -27,6 +27,8 @@ function AssignmentEditor() {
     availableUntilDate: "",
   });
 
+  console.log(`Fetching assignment with ID: ${assignmentId}`);
+
   useEffect(() => {
     if (assignmentId) {
       assignmentService.getAssignmentById(assignmentId)

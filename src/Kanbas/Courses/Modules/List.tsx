@@ -7,7 +7,7 @@ import { KanbasState } from "../../store";
 import * as client from "./client.js";
 
 interface ModuleType {
-  _id: string;
+  id: string;
   name: string;
   description: string;
   course: string;
@@ -32,7 +32,7 @@ const ModuleItem = ({ module }: { module: ModuleType }) => {
     <li className="list-group-item">
       <button onClick={handleEdit}>Edit</button>
       <button
-              onClick={() => handleDeleteModule(module._id)} >
+              onClick={() => handleDeleteModule(module.id)} >
               Delete </button>
       <h3>{module.name}</h3>
       <p>{module.description}</p>

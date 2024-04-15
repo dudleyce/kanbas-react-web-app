@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import assignments from "../../Database/assignments.json";
 
 const initialState = {
-    assignments: [],
-    assignment: { title: "New Assignment 123"},
-  };
+  assignments: assignments, // Assuming 'assignments' is an array of assignment objects
+  assignment: { title: "New Assignment 123"},
+};
 
   const assignmentsSlice = createSlice({
     name: "assignments",
