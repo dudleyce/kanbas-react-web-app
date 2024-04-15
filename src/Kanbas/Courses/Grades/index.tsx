@@ -1,9 +1,9 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
 function Grades() {
-  const { cid } = useParams();
-  const as = assignments.filter((assignment) => assignment.course === cid);
-  const es = enrollments.filter((enrollment) => enrollment.course === cid);
+  const { courseId } = useParams();
+  const as = assignments.filter((assignment) => assignment.course === courseId);
+  const es = enrollments.filter((enrollment) => enrollment.course === courseId);
   return (
     <div>
       <h1>Grades</h1>
@@ -15,13 +15,13 @@ function Grades() {
           </thead>
           <tbody>
             {es.map((enrollment) => {
-              const user = users.find((user) => user._id === enrollment.user);
+              const user = users.find((user) => user.id === enrollment.user);
               return (
                 <tr>
                    <td>{user?.firstName} {user?.lastName}</td>
                    {assignments.map((assignment) => {
                      const grade = grades.find(
-                       (grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
+                       (grade) => grade.student === enrollment.user && grade.assignment === assignment.id);
                        return (<td>{grade?.grade || ""}</td>);})}
                 </tr>);
             })}

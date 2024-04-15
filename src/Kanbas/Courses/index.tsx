@@ -13,15 +13,20 @@ import axios from "axios";
 
 
 function Courses() {
-const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000/';
+const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:4000';
 const COURSES_API = `${API_BASE}/api/courses`;
   const { courseId } = useParams<{ courseId: string }>();
 
-  const [course, setCourse] = useState<any>({ _id: "" });
+  const [course, setCourse] = useState<any>({});
   const findCourseById = async (courseId: string) => {
-    const response = await axios.get(`${COURSES_API}/${courseId}`);
-    setCourse(response.data);
-  };
+    try {
+        const response = await axios.get(`${COURSES_API}/${courseId}`);
+        setCourse(response.data);
+    } catch (error) {
+        console.error('Failed to fetch course:', error);
+        // Optionally handle state changes or UI feedback
+    }
+};
 
 console.log(`Requesting course with ID: ${courseId}`);
 console.log(`Constructed URL: ${COURSES_API}/${courseId}`);
